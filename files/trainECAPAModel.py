@@ -53,7 +53,6 @@ torch.multiprocessing.set_sharing_strategy('file_system')
 args = parser.parse_args()
 args = init_args(args)
 
-<<<<<<< HEAD
 ## Define the data loader
 trainloader = train_loader(**vars(args))
 print("get item in main page code =")
@@ -63,18 +62,6 @@ print()
 ## Search for the exist models
 modelfiles = glob.glob('%s/model_0*.model'%args.model_save_path)
 modelfiles.sort()
-=======
-    ## Define the data loader
-    trainloader = train_loader(**vars(args))
-    print("get item in main page code =")
-    #print(trainloader.__getitem__(2))
-    print("hello main")
-    trainLoader = torch.utils.data.DataLoader(trainloader, batch_size = args.batch_size, shuffle = True, num_workers = 0, drop_last = True)
-    print()
-    ## Search for the exist models
-    modelfiles = glob.glob('%s/model_0*.model'%args.model_save_path)
-    modelfiles.sort()
->>>>>>> 6e57f013d52ee51cfdbd4aa6caf5a5576b20cd22
 
     ## Only do evaluation, the initial_model is necessary
     #if args.eval == True:
@@ -85,22 +72,12 @@ modelfiles.sort()
     #    print("EER %2.2f%%, minDCF %.4f%%"%(EER, minDCF))
     #    quit()
 
-<<<<<<< HEAD
 ## If initial_model is exist, system will train from the initial_model
 if args.initial_model != "":
     print("Model %s loaded from previous state!"%args.initial_model)
     s = ECAPAModel(**vars(args))
     s.load_parameters(args.initial_model)
     epoch = 1
-=======
-    ## If initial_model is exist, system will train from the initial_model
-    if args.initial_model != "":
-        
-        print("Model %s loaded from previous state!"%args.initial_model)
-        s = ECAPAModel(**vars(args))
-        s.load_parameters(args.initial_model)
-        epoch = 1
->>>>>>> 6e57f013d52ee51cfdbd4aa6caf5a5576b20cd22
 
 ## Otherwise, system will try to start from the saved model&epoch
 elif len(modelfiles) >= 1:
