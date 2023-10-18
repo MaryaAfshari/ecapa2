@@ -40,12 +40,7 @@ class ECAPAModel(nn.Module):
 			self.optim.step()
 			index += len(labels)
 			top1 += prec
-<<<<<<< HEAD
 			loss += nloss.detach().cuda().numpy()
-=======
-			loss += nloss.detach().cpu().numpy()
-			#print("here")
->>>>>>> 6e57f013d52ee51cfdbd4aa6caf5a5576b20cd22
 			sys.stderr.write(time.strftime("%m-%d %H:%M:%S") + \
 			" [%2d] Lr: %5f, Training: %.2f%%, "    %(epoch, lr, 100 * (num / loader.__len__())) + \
 			" Loss: %.5f, ACC: %2.2f%% \r"        %(loss/(num), top1/index*len(labels)))
