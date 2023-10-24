@@ -12,7 +12,7 @@ parser = argparse.ArgumentParser(description = "ECAPA_trainer")
 ## Training Settings
 parser.add_argument('--num_frames', type=int,   default=200,     help='Duration of the input segments, eg: 200 for 2 second')
 parser.add_argument('--max_epoch',  type=int,   default=80,      help='Maximum number of epochs')
-parser.add_argument('--batch_size', type=int,   default=3,     help='Batch size')
+parser.add_argument('--batch_size', type=int,   default=128,     help='Batch size')
 parser.add_argument('--n_cpu',      type=int,   default=1,       help='Number of loader threads')
 parser.add_argument('--test_step',  type=int,   default=1,       help='Test and save every [test_step] epochs')
 parser.add_argument('--lr',         type=float, default=0.001,   help='Learning rate')
@@ -42,7 +42,7 @@ parser.add_argument('--initial_model',  type=str,   default="",                 
 parser.add_argument('--C',       type=int,   default=1024,   help='Channel size for the speaker encoder')
 parser.add_argument('--m',       type=float, default=0.2,    help='Loss margin in AAM softmax')
 parser.add_argument('--s',       type=float, default=30,     help='Loss scale in AAM softmax')
-parser.add_argument('--n_class', type=int,   default=5994,   help='Number of speakers')
+parser.add_argument('--n_class', type=int,   default=2699,   help='Number of speakers')#5994 #1858
 
 ## Command
 parser.add_argument('--eval',    dest='eval', action='store_true', help='Only do evaluation')
