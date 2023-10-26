@@ -42,7 +42,7 @@ parser.add_argument('--initial_model',  type=str,   default="",                 
 parser.add_argument('--C',       type=int,   default=1024,   help='Channel size for the speaker encoder')
 parser.add_argument('--m',       type=float, default=0.2,    help='Loss margin in AAM softmax')
 parser.add_argument('--s',       type=float, default=30,     help='Loss scale in AAM softmax')
-parser.add_argument('--n_class', type=int,   default=2699,   help='Number of speakers')#5994 #1858
+parser.add_argument('--n_class', type=int,   default=5994,   help='Number of speakers')#5994 #1858
 
 ## Command
 parser.add_argument('--eval',    dest='eval', action='store_true', help='Only do evaluation')
