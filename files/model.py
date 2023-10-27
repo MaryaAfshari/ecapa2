@@ -159,10 +159,10 @@ class ECAPA_TDNN(nn.Module):
             nn.Conv1d(256, 1536, kernel_size=1),
             nn.Softmax(dim=2),
             )
-        #self.bn5 = nn.BatchNorm1d(3072)
-        self.bn5 = nn.BatchNorm1d(2 * C)
-        #self.fc6 = nn.Linear(3072, 192)
-        self.fc6 = nn.Linear(2 * C, 192)
+        self.bn5 = nn.BatchNorm1d(3072)
+        #self.bn5 = nn.BatchNorm1d(2 * C) #2048 #dataloader = 2980
+        self.fc6 = nn.Linear(3072, 192)
+        #self.fc6 = nn.Linear(2 * C, 192)
         self.bn6 = nn.BatchNorm1d(192)
 
 
