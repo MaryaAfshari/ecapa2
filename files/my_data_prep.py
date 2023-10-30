@@ -27,7 +27,7 @@ for index, line in enumerate(lines):
     data_label_mine.append(speaker_label)
     data_list_mine.append(file_name)
 
-num_spkr_mine = len(speaker_label)
+num_spkr_mine = len(data_label_mine)
 print("Len Speaker = "+num_spkr_mine)
 num_unique_spkr = len(unique_spkr)
 print("Len Unique Speaker = "+num_unique_spkr)
