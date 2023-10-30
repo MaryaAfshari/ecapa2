@@ -115,8 +115,8 @@ class ECAPAModel(nn.Module):
 				embedding_2 = self.speaker_encoder.forward(data_2, aug = False)
 				embedding_2 = F.normalize(embedding_2, p=2, dim=1)
 			embeddings[file] = [embedding_1, embedding_2]
-		scores, labels  = [], []
 
+		scores, labels  = [], []
 		for line in lines:			
 			embedding_11, embedding_12 = embeddings[line.split()[1]]
 			embedding_21, embedding_22 = embeddings[line.split()[2]]
@@ -134,6 +134,9 @@ class ECAPAModel(nn.Module):
 		minDCF, _ = ComputeMinDcf(fnrs, fprs, thresholds, 0.05, 1, 1)
 
 		return EER, minDCF
+
+
+
 
 	def save_parameters(self, path):
 		torch.save(self.state_dict(), path)
