@@ -35,3 +35,9 @@ print(f"Len Unique Speaker = {num_unique_spkr}")
 print(f"audio per Speaker = {num_spkr_mine/num_unique_spkr}")
 
 eval_speaker_mine = 0.2 * num_unique_spkr
+num_spkr_eval = eval_speaker_mine
+
+while num_spkr_eval > 0:
+    print(num_spkr_eval)
+    break;
+    num_spkr_eval -= 1 
