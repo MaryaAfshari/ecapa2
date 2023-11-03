@@ -41,7 +41,7 @@ num_spkr_eval = eval_speaker_mine
 lines2 = open(train_list_mine).read().splitlines()
 speaker_data = {}
 while num_spkr_eval > 0:
-    print(num_spkr_eval)
+    #print(num_spkr_eval)
     #break;
     for index, line in enumerate(lines2):
         speaker_label = dictkeys[line.split()[0]]
