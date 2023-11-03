@@ -57,4 +57,5 @@ while num_spkr_eval > 0:
 print("I have made the dictionary finally")
 for key, value in speaker_data.items():
     print(key, ":", value)
+    break;
 
