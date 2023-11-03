@@ -8,6 +8,8 @@ from scipy import signal
 print("hello preparation code")
 train_list_mine = "train_list_v2.txt"
 train_path_mine = "../../../../../mnt/disk1/data/DeepMine/wav"
+train_list_new = "../../train_list_v3.txt"
+eval_list_new = "../../eval_list_v1.txt"
 num_frames_mine  = 200
 data_list_mine   = []
 data_label_mine = []
@@ -36,8 +38,23 @@ print(f"audio per Speaker = {num_spkr_mine/num_unique_spkr}")
 
 eval_speaker_mine = 0.2 * num_unique_spkr
 num_spkr_eval = eval_speaker_mine
-
+lines2 = open(train_list_mine).read().splitlines()
+speaker_data = {}
 while num_spkr_eval > 0:
     print(num_spkr_eval)
-    break;
+    #break;
+    for index, line in enumerate(lines2):
+        speaker_label = dictkeys[line.split()[0]]
+    
+        if speaker_label not in speaker_data:
+            speaker_data[speaker_label] = []
+    
+        file_name = os.path.join(train_path_mine, line.split()[0], line.split()[1])
+        speaker_data[speaker_label].append(file_name)
+
+
     num_spkr_eval -= 1 
+print("I have made the dictionary finally")
+for key, value in speaker_data.items():
+    print(key, ":", value)
+
