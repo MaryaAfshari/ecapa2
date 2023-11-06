@@ -67,7 +67,7 @@ path1_eval = []
 path2_eval = []
 
 # Write the list to a text file
-with open('../../../../../mnt/disk1/data/DeepMine/output_test2.txt', 'w') as file:
+with open('../../../output_test2.txt', 'w') as file:
     print("Opening file... Please wait.")
     for spkr1_counter in range(len(spkr_list)):
         for spkr2_counter in range(spkr1_counter + 1, len(spkr_list)):
@@ -77,7 +77,7 @@ with open('../../../../../mnt/disk1/data/DeepMine/output_test2.txt', 'w') as fil
                         file.write(f'1 {wav1_item} {wav2_item}\n')
                     else:
                         file.write(f'0 {wav1_item} {wav2_item}\n')
-            break;
+                break;
 print("I wrote successfulluy in a text file")
 
 '''
