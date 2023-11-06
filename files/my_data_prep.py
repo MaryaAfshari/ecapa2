@@ -54,11 +54,81 @@ while num_spkr_eval > 0:
 
     num_spkr_eval -= 1 
 print("I have made the dictionary finally")
+
+# Convert dictionary to list of key-value pairs
+my_list = [(key, value) for key, value in speaker_data.items()]
+
+# Extract keys and values separately
+spkr_list, wavs_list = zip(*my_list)
+
+# Initialize lists
+labels_eval = []
+path1_eval = []
+path2_eval = []
+
+# Write the list to a text file
+with open('../../output_test2.txt', 'w') as file:
+    print("Opening file... Please wait.")
+    for spkr1_counter in range(len(spkr_list)):
+        for spkr2_counter in range(spkr1_counter + 1, len(spkr_list)):
+            for wav1_item in wavs_list[spkr1_counter]:
+                for wav2_item in wavs_list[spkr2_counter]:
+                    if spkr_list[spkr1_counter] == spkr_list[spkr2_counter]:
+                        file.write(f'1 {wav1_item} {wav2_item}\n')
+                    else:
+                        file.write(f'0 {wav1_item} {wav2_item}\n')
+            break;
+print("I wrote successfulluy in a text file")
+
+'''
+# Convert dictionary to list of key-value pairs
+my_list = [(key, value) for key, value in speaker_data.items()]
 for key, value in speaker_data.items():
     print(key, ":", value[0])
     break;
+# Extract keys and values separately
+spkr_list, wavs_list = zip(*my_list)
 
-my_dict = {'key1': 1, 'key2': 2, 'key3': 3}
+# Initialize lists
+labels_eval = []
+path1_eval = []
+path2_eval = []
+
+# Write the list to a text file
+with open('../../output_test.txt', 'w') as file:
+    print("open file ... please wait")
+    for spkr1_counter in range(len(spkr_list)):
+        for spkr2_counter in range(spkr1_counter + 1, len(spkr_list)):
+            for wav1_counter in range(len(wavs_list[spkr1_counter])):
+                for wav2_counter in range(len(wavs_list[spkr2_counter])):
+                    if spkr_list[spkr1_counter] == spkr_list[spkr2_counter]:
+                        file.write(f'1 {wavs_list[spkr1_counter][wav1_counter]} {wavs_list[spkr2_counter][wav2_counter]}\n')
+                    elif spkr_list[spkr1_counter] != spkr_list[spkr2_counter]:
+                        file.write(f'0 {wavs_list[spkr1_counter][wav1_counter]} {wavs_list[spkr2_counter][wav2_counter]}\n')
+            break;
+
+'''
+'''
+my_list = [(key, value) for key, value in speaker_data.items()]
+# Extract keys and values separately
+spkr_list, wavs_list = zip(*my_list)
+i =0
+labels_eval =[]
+path1_eval=[]
+path2_eval=[]
+# Write the list to a text file
+with open('../../output_test.txt', 'w') as file:
+    for spkr1_counter in range(0,len(spkr_list)):
+        for wav1_counter in range(0,len(wavs_list)) :
+            for spkr2_counter in range(spkr1_counter+1,len(spkr_list)):
+                for wav2_counter in range(wav1_counter+1,len(wavs_list)):
+                    if spkr_list(spkr1_counter) == spkr_list(spkr2_counter):
+                        file.write(f'1 {wavs_list(wav1_counter)} {wavs_list(wav2_counter)} \n')
+                    elif spkr_list(spkr1_counter) != spkr_list(spkr2_counter):
+                        file.write(f'0 {wavs_list(wav1_counter)} {wavs_list(wav2_counter)} \n')
+
+'''
+'''my_dict = {'key1': 1, 'key2': 2, 'key3': 3}
 
 # Convert the dictionary to a list of key-value pairs
 dict_list = list(my_dict.items())
@@ -67,4 +137,4 @@ dict_list = list(my_dict.items())
 with open('../../output_test.txt', 'w') as file:
     for key, value in dict_list:
         file.write(f'{key}: {value}\n')
-print("I wrote successfulluy in a text file")
+print("I wrote successfulluy in a text file")'''
