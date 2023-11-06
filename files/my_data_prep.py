@@ -51,8 +51,7 @@ while num_spkr_eval > 0:
     
         file_name = os.path.join(train_path_mine, line.split()[0], line.split()[1])
         speaker_data[speaker_label].append(file_name)
-
-
+        
     num_spkr_eval -= 1 
 print("I have made the dictionary finally")
 for key, value in speaker_data.items():
