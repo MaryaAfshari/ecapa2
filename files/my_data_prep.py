@@ -51,10 +51,20 @@ while num_spkr_eval > 0:
     
         file_name = os.path.join(train_path_mine, line.split()[0], line.split()[1])
         speaker_data[speaker_label].append(file_name)
-        
+
     num_spkr_eval -= 1 
 print("I have made the dictionary finally")
 for key, value in speaker_data.items():
-    print(key, ":", value)
+    print(key, ":", value[0])
     break;
 
+my_dict = {'key1': 1, 'key2': 2, 'key3': 3}
+
+# Convert the dictionary to a list of key-value pairs
+dict_list = list(my_dict.items())
+
+# Write the list to a text file
+with open('../../output_test.txt', 'w') as file:
+    for key, value in dict_list:
+        file.write(f'{key}: {value}\n')
+print("I wrote successfulluy in a text file")
