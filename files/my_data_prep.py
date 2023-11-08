@@ -10,6 +10,7 @@ train_list_mine = "train_list_v2.txt"
 train_path_mine = "../../../../../mnt/disk1/data/DeepMine/wav"
 train_list_new = "../../train_list_v3.txt"
 eval_list_new = "../../eval_list_v1.txt"
+my_eval_path = "../../../../../mnt/disk1/users/afshari"
 num_frames_mine  = 200
 data_list_mine   = []
 data_label_mine = []
@@ -67,7 +68,8 @@ path1_eval = []
 path2_eval = []
 
 # Write the list to a text file
-with open('../../../output_test2.txt', 'w') as file:
+#with open('../../../output_test2.txt', 'w') as file:
+with open(my_eval_path, 'w') as file:
     print("Opening file... Please wait.")
     for spkr1_counter in range(len(spkr_list)):
         for spkr2_counter in range(spkr1_counter + 1, len(spkr_list)):
