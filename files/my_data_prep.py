@@ -69,6 +69,7 @@ path2_eval = []
 
 # Write the list to a text file
 #with open('../../../output_test2.txt', 'w') as file:
+counter = 0
 with open(my_eval_path, 'w') as file:
     print("Opening file... Please wait.")
     for spkr1_counter in range(len(spkr_list)):
@@ -76,10 +77,14 @@ with open(my_eval_path, 'w') as file:
             for wav1_item in wavs_list[spkr1_counter]:
                 for wav2_item in wavs_list[spkr2_counter]:
                     if spkr_list[spkr1_counter] == spkr_list[spkr2_counter]:
-                        file.write(f'1 {wav1_item} {wav2_item}\n')
+                        #file.write(f'1 {wav1_item} {wav2_item}\n')
+                        print(f'1 {wav1_item} {wav2_item}\n')
                     else:
-                        file.write(f'0 {wav1_item} {wav2_item}\n')
-                break;
+                        #file.write(f'0 {wav1_item} {wav2_item}\n')
+                        print(f'0 {wav1_item} {wav2_item}\n')
+                    counter = counter +1
+                #break;
+print(f'counter =  {counter} -----------------------------')
 print("I wrote successfulluy in a text file")
 
 '''
