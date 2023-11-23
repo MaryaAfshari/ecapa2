@@ -62,6 +62,21 @@ my_list = [(key, value) for key, value in speaker_data.items()]
 
 # Extract keys and values separately
 spkr_list, wavs_list = zip(*my_list)
+#Find the min len of wavs for speakers
+min_length = float('inf')  # Initialize with a large value
+
+for spkr1_counter in range(len(spkr_list)):
+    current_length = len(wavs_list[spkr1_counter])
+    if current_length < min_length:
+        min_length = current_length
+
+print(f"The minimum number of elements in wav_list is: {min_length}")
+
+# Convert dictionary to list of key-value pairs
+my_list = [(key, value) for key, value in speaker_data.items()]
+
+# Extract keys and values separately
+spkr_list, wavs_list = zip(*my_list)
 
 # Initialize lists
 labels_eval = []
