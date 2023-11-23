@@ -1,6 +1,7 @@
 '''
 Code for prepairing train_list and eval_list
 Data : 30-Oct-2023
+Date: 23-Nov-2023
 '''
 import glob, numpy, os, random, soundfile, torch
 from scipy import signal
