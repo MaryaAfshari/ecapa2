@@ -72,6 +72,21 @@ for spkr1_counter in range(len(spkr_list)):
 
 print(f"The minimum number of elements in wav_list is: {min_length}")
 
+# Prompt the user to enter 'y' or 'n' to continue or stop
+choice = input("Enter 'y' to continue or 'n' to stop: ")
+
+# Keep prompting until 'y' or 'n' is entered
+while choice != 'y' and choice != 'n':
+    choice = input("Invalid input. Enter 'y' to continue or 'n' to stop: ")
+
+# Check the choice
+if choice == 'y':
+    print("Continuing...")
+    # Rest of your code goes here
+else:
+    print("Stopping the program.")
+    # Any necessary cleanup or actions to stop the program
+
 # Convert dictionary to list of key-value pairs
 my_list = [(key, value) for key, value in speaker_data.items()]
 
