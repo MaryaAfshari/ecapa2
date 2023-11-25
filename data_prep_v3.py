@@ -6,6 +6,15 @@ train_list_new = "train_list_new.txt"
 train_path_mine = "/path/to/train_data"
 my_eval_path = "output_test2.txt"
 
+
+print("hello preparation code")
+train_list_mine = "train_list_v2.txt"
+train_path_mine = "../../../../../mnt/disk1/data/DeepMine/wav"
+train_list_new = "../../../../../mnt/disk1/users/afshari/save_list/train_list_v4.txt"
+eval_list_new = "../../../../../mnt/disk1/users/afshari/save_list/eval_list_v4.txt"
+my_eval_path = "../../../../../mnt/disk1/users/afshari/save_list/eval_test_v4.txt"
+num_frames_mine  = 200
+
 # Read train_list_mine file
 lines = open(train_list_mine).read().splitlines()
 
@@ -27,7 +36,7 @@ with open(train_list_new, 'w') as f:
         if speaker_label in speakers_to_keep:
             f.write(line + '\n')
 
-print("Train list files  created.")
+print("Train list new is created.")
 # Create speaker_data dictionary for remaining speakers
 speaker_data = {}
 for line in lines:
@@ -38,7 +47,7 @@ for line in lines:
         file_name = os.path.join(train_path_mine, line.split()[0], line.split()[1])
         speaker_data[speaker_label].append(file_name)
 
-print("Speaker_data dictionary created.")
+print("Speaker_data dictionary is created.")
 
 # Convert dictionary to list of key-value pairs
 my_list = [(key, value) for key, value in speaker_data.items()]
