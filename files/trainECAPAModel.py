@@ -22,17 +22,18 @@ parser.add_argument("--lr_decay",   type=float, default=0.97,    help='Learning 
 #train_list = "/Volumes/My Passport/Mary/train/train_list_very_small.txt" /Users/maryamafshari/Desktop/Thesis_data
 #train_path = "/Volumes/My Passport/Mary/Voxceleb2_small/Audio/dev/aac" /Users/maryamafshari/Desktop/Thesis_data/Voxceleb2_small/Audio/dev/aac
 #parser.add_argument('--train_list', type=str,   default= "/Volumes/My Passport/Mary/train/train_list_very_small.txt",     help='The path of the training list, https://www.robots.ox.ac.uk/~vgg/data/voxceleb/meta/train_list.txt')
-#parser.add_argument('--train_list', type=str,   default= "train_list_very_small.txt",     help='The path of the training list, https://www.robots.ox.ac.uk/~vgg/data/voxceleb/meta/train_list.txt')
-parser.add_argument('--train_list', type=str,   default= "train_list_v2.txt",     help='The path of the training list, https://www.robots.ox.ac.uk/~vgg/data/voxceleb/meta/train_list.txt')
+parser.add_argument('--train_list', type=str,   default= "../../../../../mnt/disk1/users/afshari/save_list/train_list_v4.txt",     help='The path of the training list, https://www.robots.ox.ac.uk/~vgg/data/voxceleb/meta/train_list.txt')
+#parser.add_argument('--train_list', type=str,   default= "train_list_v2.txt",     help='The path of the training list, https://www.robots.ox.ac.uk/~vgg/data/voxceleb/meta/train_list.txt')
     #parser.add_argument('--train_path', type=str,   default="/Volumes/My Passport/Mary/Voxceleb2_small/Audio/dev/aac",                    help='The path of the training data, eg:"/data08/VoxCeleb2/train/wav" in my case')
 parser.add_argument('--train_path', type=str,   default="../../../../../mnt/disk1/data/DeepMine/wav",                    help='The path of the training data, eg:"/data08/VoxCeleb2/train/wav" in my case')
     #parser.add_argument('--train_path', type=str,   default="../Voxceleb2_small/Audio/dev/aac",                    help='The path of the training data, eg:"/data08/VoxCeleb2/train/wav" in my case')
     # parser.add_argument('--train_list', type=str,   default="/data08/VoxCeleb2/train_list.txt",     help='The path of the training list, https://www.robots.ox.ac.uk/~vgg/data/voxceleb/meta/train_list.txt')
     # parser.add_argument('--train_path', type=str,   default="/data08/VoxCeleb2/train/wav",                    help='The path of the training data, eg:"/data08/VoxCeleb2/train/wav" in my case')
-    
+parser.add_argument('--eval_list',  type=str,   default="../../../../../mnt/disk1/users/afshari/save_list/eval_list_v4.txt",              help='The path of the evaluation list, veri_test2.txt comes from https://www.robots.ox.ac.uk/~vgg/data/voxceleb/meta/veri_test2.txt')  
     #parser.add_argument('--eval_list',  type=str,   default="/Users/maryamafshari/Desktop/Thesis_data/veri_text_small.txt",              help='The path of the evaluation list, veri_test2.txt comes from https://www.robots.ox.ac.uk/~vgg/data/voxceleb/meta/veri_test2.txt')
     # parser.add_argument('--eval_list',  type=str,   default="/data08/VoxCeleb1/veri_test2.txt",              help='The path of the evaluation list, veri_test2.txt comes from https://www.robots.ox.ac.uk/~vgg/data/voxceleb/meta/veri_test2.txt')
-    # parser.add_argument('--eval_path',  type=str,   default="/data08/VoxCeleb1/test/wav",                    help='The path of the evaluation data, eg:"/data08/VoxCeleb1/test/wav" in my case')
+#parser.add_argument('--eval_path',  type=str,   default="/data08/VoxCeleb1/test/wav",                    help='The path of the evaluation data, eg:"/data08/VoxCeleb1/test/wav" in my case')
+parser.add_argument('--eval_path',  type=str,   default="../../../../../mnt/disk1/data/DeepMine/wav",                    help='The path of the evaluation data, eg:"/data08/VoxCeleb1/test/wav" in my case')
     # parser.add_argument('--musan_path', type=str,   default="/data08/Others/musan_split",                    help='The path to the MUSAN set, eg:"/data08/Others/musan_split" in my case')
     # parser.add_argument('--rir_path',   type=str,   default="/data08/Others/RIRS_NOISES/simulated_rirs",     help='The path to the RIR set, eg:"/data08/Others/RIRS_NOISES/simulated_rirs" in my case');
 parser.add_argument('--save_path',  type=str,   default="exps/exp1",                                     help='Path to save the score.txt and models')
@@ -87,6 +88,7 @@ elif len(modelfiles) >= 1:
     s.load_parameters(modelfiles[-1])
 ## Otherwise, system will train from scratch
 else:
+    print("I am here for learn from starting")
     epoch = 1
     s = ECAPAModel(**vars(args))
 
