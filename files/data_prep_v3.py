@@ -12,7 +12,7 @@ train_list_mine = "train_list_v2.txt"
 train_path_mine = "../../../../../mnt/disk1/data/DeepMine/wav"
 train_list_new = "../../../../../mnt/disk1/users/afshari/save_list/train_list_v4.txt"
 eval_list_new = "../../../../../mnt/disk1/users/afshari/save_list/eval_list_v4.txt"
-my_eval_path = "../../../../../mnt/disk1/users/afshari/save_list/eval_test_v4.txt"
+my_eval_path = "../../../../../mnt/disk1/users/afshari/save_list/eval_list_v4.txt"
 num_frames_mine  = 200
 
 # Read train_list_mine file
