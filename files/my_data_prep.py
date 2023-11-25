@@ -9,7 +9,7 @@ from scipy import signal
 print("hello preparation code")
 train_list_mine = "train_list_v2.txt"
 train_path_mine = "../../../../../mnt/disk1/data/DeepMine/wav"
-train_list_new = "../../train_list_v3.txt"
+train_list_new = "../../../../../mnt/disk1/users/afshari/save_list/train_list_v3.txt"
 eval_list_new = "../../eval_list_v1.txt"
 my_eval_path = "../../../../../mnt/disk1/users/afshari/save_list/eval_test1.txt"
 num_frames_mine  = 200
