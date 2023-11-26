@@ -1,10 +1,8 @@
 import os
 import random
 
-train_list_mine = "train_list_mine.txt"
-train_list_new = "train_list_new.txt"
-train_path_mine = "/path/to/train_data"
-my_eval_path = "output_test2.txt"
+import glob, numpy, os, random, soundfile, torch
+from scipy import signal
 
 
 print("hello preparation code")
@@ -135,4 +133,4 @@ with open(my_eval_path, 'w') as file:
 
 print(f"Number of '1' entries: {count_1}")
 print(f"Number of '0' entries: {count_0}")
-print("I wrote successfully in a text file.")
+print(f"I wrote successfully in {my_eval_path} as a text file.")
