@@ -98,7 +98,7 @@ score_file = open(args.score_save_path, "a+")
 while(1):
 ## Training for one epoch
     #loss, lr, acc = s.train_network(epoch = epoch, loader = trainLoader)
-    #loss, lr, acc = s.train_net(epoch = epoch, loader = trainLoader)
+    loss, lr, acc = s.train_net(epoch = epoch, loader = trainLoader)
 
 ## Evaluation every [test_step] epochs
     if epoch % args.test_step == 0:
