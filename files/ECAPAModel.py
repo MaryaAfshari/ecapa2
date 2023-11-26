@@ -125,7 +125,8 @@ class ECAPAModel(nn.Module):
 			score_2 = torch.mean(torch.matmul(embedding_12, embedding_22.T))
 			score = (score_1 + score_2) / 2
 			#score = score.detach().cuda().numpy()
-			score = score.detach().cuda()
+			#score = score.detach().cuda()
+			score = score.detach().cpu().numpy()
 			scores.append(score)
 			labels.append(int(line.split()[0]))
 			
