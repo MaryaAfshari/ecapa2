@@ -2,7 +2,7 @@
 This is the main code of the ECAPATDNN project, to define the parameters and build the construction
 '''
 
-import argparse, glob, os, torch, warnings, time
+import argparse, glob, os, torch, warnings, time, sys
 from tools import *
 from dataLoader import train_loader
 from ECAPAModel import ECAPAModel
@@ -118,6 +118,10 @@ while(1):
         score_file.flush()
         score_file.write("--------------------------------here3 --------------------------------------")
         score_file.flush()
+        sys.stderr.write(time.strftime("%m-%d %H:%M:%S") + \
+		"%d epoch, bestEER %2.2f%%\n"%(epoch,  min(EERs)))
+        sys.stderr.flush()
+        sys.stdout.write("\n")
         '''print("----------------------------------------------------------------------")
         print(time.strftime("%Y-%m-%d %H:%M:%S"), "%d epoch, ACC %2.2f%%, EER %2.2f%%, bestEER %2.2f%%"%(epoch, acc, EERs[-1], min(EERs)))
         score_file.write("%d epoch, LR %f, LOSS %f, ACC %2.2f%%, EER %2.2f%%, bestEER %2.2f%%\n"%(epoch, lr, loss, acc, EERs[-1], min(EERs)))
