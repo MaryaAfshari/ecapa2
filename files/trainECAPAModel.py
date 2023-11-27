@@ -105,11 +105,17 @@ while(1):
         s.save_parameters(args.model_save_path + "/model_%04d.model"%epoch)
         EERs.append(s.eval_network(eval_list = args.eval_list, eval_path = args.eval_path)[0])
         print("----------------------------------------------------------------------")
+        score_file.flush()
         print(time.strftime("%Y-%m-%d %H:%M:%S"), "%d epoch, EER %2.2f%%, bestEER %2.2f%%"%(epoch,  EERs[-1], min(EERs)))
+        score_file.flush()
         score_file.write("-----------------------------------here 1 -----------------------------------")
+        score_file.flush()
         score_file.write(time.strftime("%Y-%m-%d %H:%M:%S")+"%d epoch, EER %2.2f%%, bestEER %2.2f%%\n"%(epoch,  EERs[-1], min(EERs)))
+        score_file.flush()
         score_file.write("-----------------------------------here 2-----------------------------------")
+        score_file.flush()
         score_file.write( "%d epoch, bestEER %2.2f%%\n"%(epoch,  min(EERs)))
+        score_file.flush()
         score_file.write("--------------------------------here3 --------------------------------------")
         score_file.flush()
         '''print("----------------------------------------------------------------------")
@@ -118,7 +124,9 @@ while(1):
         score_file.flush()'''
 
     if epoch >= args.max_epoch:
+        score_file.close()
         quit()
+        
 
     epoch += 1
         
