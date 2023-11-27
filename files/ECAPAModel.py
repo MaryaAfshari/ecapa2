@@ -134,7 +134,11 @@ class ECAPAModel(nn.Module):
 		EER = tuneThresholdfromScore(scores, labels, [1, 0.1])[1]
 		fnrs, fprs, thresholds = ComputeErrorRates(scores, labels)
 		minDCF, _ = ComputeMinDcf(fnrs, fprs, thresholds, 0.05, 1, 1)
-
+		sys.stderr.write(time.strftime("%m-%d %H:%M:%S") + \
+		" [%2d] EER: %5f, minDCF: %.2f%%"    %(EER, minDCF) + \
+		" fnrs: %.5f, fprs: %2.2f%% \r"        %(fnrs, fprs))
+		sys.stderr.flush()
+		sys.stdout.write("\n")
 		return EER, minDCF
 
 
