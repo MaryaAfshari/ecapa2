@@ -11,7 +11,7 @@ from ECAPAModel import ECAPAModel
 parser = argparse.ArgumentParser(description = "ECAPA_trainer")
 ## Training Settings
 parser.add_argument('--num_frames', type=int,   default=200,     help='Duration of the input segments, eg: 200 for 2 second')
-parser.add_argument('--max_epoch',  type=int,   default=80,      help='Maximum number of epochs')
+parser.add_argument('--max_epoch',  type=int,   default=5,      help='Maximum number of epochs')
 parser.add_argument('--batch_size', type=int,   default=3,     help='Batch size')
 parser.add_argument('--n_cpu',      type=int,   default=1,       help='Number of loader threads')
 parser.add_argument('--test_step',  type=int,   default=1,       help='Test and save every [test_step] epochs')
@@ -107,6 +107,9 @@ while(1):
         print("----------------------------------------------------------------------")
         print(time.strftime("%Y-%m-%d %H:%M:%S"), "%d epoch, EER %2.2f%%, bestEER %2.2f%%"%(epoch,  EERs[-1], min(EERs)))
         score_file.write("%d epoch, EER %2.2f%%, bestEER %2.2f%%\n"%(epoch,  EERs[-1], min(EERs)))
+        score_file.write("----------------------------------------------------------------------")
+        score_file.write(time.strftime("%Y-%m-%d %H:%M:%S"), "%d epoch, bestEER %2.2f%%"%(epoch,  min(EERs)))
+        score_file.write("----------------------------------------------------------------------")
         score_file.flush()
         '''print("----------------------------------------------------------------------")
         print(time.strftime("%Y-%m-%d %H:%M:%S"), "%d epoch, ACC %2.2f%%, EER %2.2f%%, bestEER %2.2f%%"%(epoch, acc, EERs[-1], min(EERs)))
