@@ -108,7 +108,7 @@ while(1):
         print(time.strftime("%Y-%m-%d %H:%M:%S"), "%d epoch, EER %2.2f%%, bestEER %2.2f%%"%(epoch,  EERs[-1], min(EERs)))
         score_file.write("%d epoch, EER %2.2f%%, bestEER %2.2f%%\n"%(epoch,  EERs[-1], min(EERs)))
         score_file.write("----------------------------------------------------------------------")
-        score_file.write(time.strftime("%Y-%m-%d %H:%M:%S"), "%d epoch, bestEER %2.2f%%"%(epoch,  min(EERs)))
+        score_file.write( "%d epoch, bestEER %2.2f%%\n"%(epoch,  min(EERs)))
         score_file.write("----------------------------------------------------------------------")
         score_file.flush()
         '''print("----------------------------------------------------------------------")
