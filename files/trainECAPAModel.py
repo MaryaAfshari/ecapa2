@@ -109,8 +109,12 @@ while(1):
     if epoch % args.test_step == 0:
         s.save_parameters(args.model_save_path + "/model_%04d.model"%epoch)
         EERs.append(s.eval_network(eval_list = args.eval_list, eval_path = args.eval_path)[0])
+        score_file_v2 = open("../../../../../mnt/disk1/users/afshari/save_list/score_v3.txt", "a+")
         print("----------------------------------------------------------------------")
         print(time.strftime("%Y-%m-%d %H:%M:%S"), "%d epoch, EER %2.2f%%, bestEER %2.2f%%"%(epoch,  EERs[-1], min(EERs)))
+        score_file_v2.write(time.strftime("%Y-%m-%d %H:%M:%S")+"%d epoch, EER %2.2f%%, bestEER %2.2f%%\n"%(epoch,  EERs[-1], min(EERs)))
+        score_file_v2.flush()
+        score_file_v2.close()
         '''score_file.write("-----------------------------------here 1 -----------------------------------")
         score_file.flush()
         score_file.write(time.strftime("%Y-%m-%d %H:%M:%S")+"%d epoch, EER %2.2f%%, bestEER %2.2f%%\n"%(epoch,  EERs[-1], min(EERs)))
@@ -121,17 +125,17 @@ while(1):
         score_file.flush()
         score_file.write("--------------------------------here3 --------------------------------------")
         score_file.flush()'''
-        sys.stderr.write(time.strftime("%m-%d %H:%M:%S") + \
+        '''sys.stderr.write(time.strftime("%m-%d %H:%M:%S") + \
 		"%d epoch, bestEER %2.2f%% \r"%(epoch,  min(EERs)))
         sys.stderr.flush()
-        sys.stdout.write("\n")
+        sys.stdout.write("\n")'''
         '''print("----------------------------------------------------------------------")
         print(time.strftime("%Y-%m-%d %H:%M:%S"), "%d epoch, ACC %2.2f%%, EER %2.2f%%, bestEER %2.2f%%"%(epoch, acc, EERs[-1], min(EERs)))
         score_file.write("%d epoch, LR %f, LOSS %f, ACC %2.2f%%, EER %2.2f%%, bestEER %2.2f%%\n"%(epoch, lr, loss, acc, EERs[-1], min(EERs)))
         score_file.flush()'''
 
     if epoch >= args.max_epoch:
-        score_file.close()
+        score_file_v2.close()
         quit()
         
 
