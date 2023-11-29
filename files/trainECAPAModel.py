@@ -11,8 +11,8 @@ from ECAPAModel import ECAPAModel
 parser = argparse.ArgumentParser(description = "ECAPA_trainer")
 ## Training Settings
 parser.add_argument('--num_frames', type=int,   default=200,     help='Duration of the input segments, eg: 200 for 2 second')
-parser.add_argument('--max_epoch',  type=int,   default=5,      help='Maximum number of epochs')
-parser.add_argument('--batch_size', type=int,   default=3,     help='Batch size')
+parser.add_argument('--max_epoch',  type=int,   default=20,      help='Maximum number of epochs')
+parser.add_argument('--batch_size', type=int,   default=10,     help='Batch size')
 parser.add_argument('--n_cpu',      type=int,   default=1,       help='Number of loader threads')
 parser.add_argument('--test_step',  type=int,   default=1,       help='Test and save every [test_step] epochs')
 parser.add_argument('--lr',         type=float, default=0.001,   help='Learning rate')
@@ -103,7 +103,7 @@ else:
 while(1):
 ## Training for one epoch
     #loss, lr, acc = s.train_network(epoch = epoch, loader = trainLoader)
-    #loss, lr, acc = s.train_net(epoch = epoch, loader = trainLoader)
+    loss, lr, acc = s.train_net(epoch = epoch, loader = trainLoader)
 
 ## Evaluation every [test_step] epochs
     if epoch % args.test_step == 0:
@@ -113,8 +113,13 @@ while(1):
         print("----------------------------------------------------------------------")
         print(time.strftime("%Y-%m-%d %H:%M:%S"), "%d epoch, EER %2.2f%%, bestEER %2.2f%%"%(epoch,  EERs[-1], min(EERs)))
         score_file_v2.write(time.strftime("%Y-%m-%d %H:%M:%S")+"%d epoch, EER %2.2f%%, bestEER %2.2f%%\n"%(epoch,  EERs[-1], min(EERs)))
+        score_file_v2.write("%d epoch, LR %f, LOSS %f, ACC %2.2f%%, EER %2.2f%%, bestEER %2.2f%%\n"%(epoch, lr, loss, acc, EERs[-1], min(EERs)))
         score_file_v2.flush()
         score_file_v2.close()
+        #write in score file first
+        score_file.write("%d epoch, LR %f, LOSS %f, ACC %2.2f%%, EER %2.2f%%, bestEER %2.2f%%\n"%(epoch, lr, loss, acc, EERs[-1], min(EERs)))
+        score_file.flush()
+
         '''score_file.write("-----------------------------------here 1 -----------------------------------")
         score_file.flush()
         score_file.write(time.strftime("%Y-%m-%d %H:%M:%S")+"%d epoch, EER %2.2f%%, bestEER %2.2f%%\n"%(epoch,  EERs[-1], min(EERs)))
@@ -133,6 +138,7 @@ while(1):
         print(time.strftime("%Y-%m-%d %H:%M:%S"), "%d epoch, ACC %2.2f%%, EER %2.2f%%, bestEER %2.2f%%"%(epoch, acc, EERs[-1], min(EERs)))
         score_file.write("%d epoch, LR %f, LOSS %f, ACC %2.2f%%, EER %2.2f%%, bestEER %2.2f%%\n"%(epoch, lr, loss, acc, EERs[-1], min(EERs)))
         score_file.flush()'''
+
 
     if epoch >= args.max_epoch:
         score_file_v2.close()
