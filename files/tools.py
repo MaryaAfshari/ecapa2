@@ -9,7 +9,7 @@ from operator import itemgetter
 import torch.nn.functional as F
 
 def init_args(args):
-	args.score_save_path    = os.path.join(args.save_path, 'score.txt')
+	args.score_save_path    = os.path.join(args.save_path, 'score_v2.txt')
 	args.model_save_path    = os.path.join(args.save_path, 'model')
 	os.makedirs(args.model_save_path, exist_ok = True)
 	return args
