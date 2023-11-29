@@ -11,8 +11,8 @@ from ECAPAModel import ECAPAModel
 parser = argparse.ArgumentParser(description = "ECAPA_trainer")
 ## Training Settings
 parser.add_argument('--num_frames', type=int,   default=200,     help='Duration of the input segments, eg: 200 for 2 second')
-parser.add_argument('--max_epoch',  type=int,   default=20,      help='Maximum number of epochs')
-parser.add_argument('--batch_size', type=int,   default=10,     help='Batch size')
+parser.add_argument('--max_epoch',  type=int,   default=50,      help='Maximum number of epochs')
+parser.add_argument('--batch_size', type=int,   default=20,     help='Batch size')
 parser.add_argument('--n_cpu',      type=int,   default=1,       help='Number of loader threads')
 parser.add_argument('--test_step',  type=int,   default=1,       help='Test and save every [test_step] epochs')
 parser.add_argument('--lr',         type=float, default=0.001,   help='Learning rate')
@@ -43,13 +43,14 @@ torch.multiprocessing.set_sharing_strategy('file_system')
 args = parser.parse_args()
 args = init_args(args)
 
-## Define the data loader
+# Define the data loader
 trainloader = train_loader(**vars(args))
 print("get item in main page code =")
 print(trainloader.__getitem__(2))
 trainLoader = torch.utils.data.DataLoader(trainloader, batch_size = args.batch_size, shuffle = True, num_workers = 0, drop_last = True)
 print("Search for the exist models")
-## Search for the exist models
+
+# Search for the exist models
 modelfiles = glob.glob('%s/model_0*.model'%args.model_save_path)
 modelfiles.sort()
 
