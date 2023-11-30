@@ -110,7 +110,7 @@ while(1):
     if epoch % args.test_step == 0:
         s.save_parameters(args.model_save_path + "/model_%04d.model"%epoch)
         EERs.append(s.eval_network(eval_list = args.eval_list, eval_path = args.eval_path)[0])
-        score_file_v2 = open("../../../../../mnt/disk1/users/afshari/save_list/score_v3.txt", "a+")
+        score_file_v2 = open("../../../../../mnt/disk1/users/afshari/save_list/score_v4.txt", "a+")
         print("----------------------------------------------------------------------")
         print(time.strftime("%Y-%m-%d %H:%M:%S"), "%d epoch, EER %2.2f%%, bestEER %2.2f%%"%(epoch,  EERs[-1], min(EERs)))
         score_file_v2.write(time.strftime("%Y-%m-%d %H:%M:%S")+"%d epoch, EER %2.2f%%, bestEER %2.2f%%\n"%(epoch,  EERs[-1], min(EERs)))
