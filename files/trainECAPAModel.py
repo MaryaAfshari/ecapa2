@@ -4,7 +4,7 @@ This is the main code of the ECAPATDNN project, to define the parameters and bui
 
 import argparse, glob, os, torch, warnings, time, sys
 from tools import *
-from dataLoader import train_loader
+from dataLoader_v2 import train_loader
 from ECAPAModel import ECAPAModel
 
 #def main():
