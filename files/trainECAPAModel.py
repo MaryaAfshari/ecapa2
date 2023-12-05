@@ -25,7 +25,7 @@ parser.add_argument('--eval_list',  type=str,   default="../../../../../mnt/disk
 parser.add_argument('--eval_path',  type=str,   default="../../../../../mnt/disk1/data/DeepMine/wav",                    help='The path of the evaluation data, eg:"/data08/VoxCeleb1/test/wav" in my case')
 parser.add_argument('--musan_path', type=str,   default="../../../../../mnt/disk1/users/afshari/myMusan/musan",                    help='The path to the MUSAN set, eg:"/data08/Others/musan_split" in my case')
 parser.add_argument('--rir_path',   type=str,   default="../../../../../mnt/disk1/users/afshari/myRIR/RIRS_NOISES/simulated_rirs",     help='The path to the RIR set, eg:"/data08/Others/RIRS_NOISES/simulated_rirs" in my case');
-parser.add_argument('--save_path',  type=str,   default="exps/exp1",                                     help='Path to save the score.txt and models')
+parser.add_argument('--save_path',  type=str,   default="exps/exp2",                                     help='Path to save the score.txt and models')
 parser.add_argument('--initial_model',  type=str,   default="",                                          help='Path of the initial_model')
 
 ## Model and Loss settings
