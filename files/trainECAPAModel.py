@@ -23,8 +23,8 @@ parser.add_argument('--train_list', type=str,   default= "../../../../../mnt/dis
 parser.add_argument('--train_path', type=str,   default="../../../../../mnt/disk1/data/DeepMine/wav",                    help='The path of the training data, eg:"/data08/VoxCeleb2/train/wav" in my case')
 parser.add_argument('--eval_list',  type=str,   default="../../../../../mnt/disk1/users/afshari/save_list/eval_list_v4.txt",              help='The path of the evaluation list, veri_test2.txt comes from https://www.robots.ox.ac.uk/~vgg/data/voxceleb/meta/veri_test2.txt')  
 parser.add_argument('--eval_path',  type=str,   default="../../../../../mnt/disk1/data/DeepMine/wav",                    help='The path of the evaluation data, eg:"/data08/VoxCeleb1/test/wav" in my case')
-# parser.add_argument('--musan_path', type=str,   default="/data08/Others/musan_split",                    help='The path to the MUSAN set, eg:"/data08/Others/musan_split" in my case')
-# parser.add_argument('--rir_path',   type=str,   default="/data08/Others/RIRS_NOISES/simulated_rirs",     help='The path to the RIR set, eg:"/data08/Others/RIRS_NOISES/simulated_rirs" in my case');
+parser.add_argument('--musan_path', type=str,   default="../../../../../mnt/disk1/users/afshari/myMusan/musan",                    help='The path to the MUSAN set, eg:"/data08/Others/musan_split" in my case')
+parser.add_argument('--rir_path',   type=str,   default="../../../../../mnt/disk1/users/afshari/myRIR/RIRS_NOISES/simulated_rirs",     help='The path to the RIR set, eg:"/data08/Others/RIRS_NOISES/simulated_rirs" in my case');
 parser.add_argument('--save_path',  type=str,   default="exps/exp1",                                     help='Path to save the score.txt and models')
 parser.add_argument('--initial_model',  type=str,   default="",                                          help='Path of the initial_model')
 
@@ -110,7 +110,7 @@ while(1):
     if epoch % args.test_step == 0:
         s.save_parameters(args.model_save_path + "/model_%04d.model"%epoch)
         EERs.append(s.eval_network(eval_list = args.eval_list, eval_path = args.eval_path)[0])
-        score_file_v2 = open("../../../../../mnt/disk1/users/afshari/save_list/score_v4.txt", "a+")
+        score_file_v2 = open("../../../../../mnt/disk1/users/afshari/save_list/score_v5_augmented.txt", "a+")
         print("----------------------------------------------------------------------")
         print(time.strftime("%Y-%m-%d %H:%M:%S"), "%d epoch, EER %2.2f%%, bestEER %2.2f%%"%(epoch,  EERs[-1], min(EERs)))
         score_file_v2.write(time.strftime("%Y-%m-%d %H:%M:%S")+"%d epoch, EER %2.2f%%, bestEER %2.2f%%\n"%(epoch,  EERs[-1], min(EERs)))
